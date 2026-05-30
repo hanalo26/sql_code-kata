@@ -1,6 +1,6 @@
 -- 620. Not Boring Movies
 -- 링크: https://leetcode.com/problems/triangle-judgement/submissions/1924890705/
--- 작성일:2026.05.30 15:
+-- 작성일:2026.05.30 15:11:54
 
 SELECT
     x, y, z,
