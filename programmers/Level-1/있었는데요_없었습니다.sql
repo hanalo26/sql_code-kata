@@ -1,0 +1,11 @@
+-- 상품별 있었는데요 없었습니다
+-- 링크:
+-- 작성일: 2026.06.21
+
+SELECT
+    i.ANIMAL_ID,
+    i.NAME
+FROM ANIMAL_INS AS i
+JOIN ANIMAL_OUTS AS o ON i.ANIMAL_ID = o.ANIMAL_ID
+WHERE o.DATETIME < i.DATETIME
+ORDER BY i.DATETIME;
