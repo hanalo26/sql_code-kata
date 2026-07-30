@@ -1,0 +1,25 @@
+-- 취소되지 않은 진료 예약 조회하기
+-- 링크:https://school.programmers.co.kr/learn/courses/30/lessons/132204
+-- 작성일: 2026.07.30
+
+# 취소되지 않은 흉부외과 진료 조회
+WITH APPOINTMENT_FILTERED AS (
+	SELECT *
+	FROM APPOINTMENT
+	WHERE APNT_CNCL_YN = "N"
+		AND APNT_YMD LIKE "2022-04-13%"
+		AND MCDP_CD = "CS"
+)
+
+# 메인
+SELECT 
+	F.APNT_NO,
+	P.PT_NAME,
+	P.PT_NO,
+	F.MCDP_CD,
+	D.DR_NAME,
+	F.APNT_YMD
+FROM APPOINTMENT_FILTERED F
+JOIN DOCTOR D ON D.DR_ID = F.MDDR_ID
+JOIN PATIENT P ON F.PT_NO = P.PT_NO
+ORDER BY F.APNT_YMD;
